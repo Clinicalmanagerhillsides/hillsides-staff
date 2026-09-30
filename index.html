@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#17365d">
 
   <title>Hillsides Staff</title>
 
@@ -15,16 +14,17 @@
 
     body {
       margin: 0;
+      padding: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6f8;
+      background-color: #f4f6f8;
       color: #1f2937;
     }
 
     .container {
+      width: 100%;
       max-width: 500px;
       margin: 0 auto;
       padding: 40px 20px;
-      min-height: 100vh;
     }
 
     .header {
@@ -34,30 +34,29 @@
 
     .header h1 {
       margin: 0;
+      font-size: 34px;
       color: #17365d;
-      font-size: 32px;
       letter-spacing: 1px;
     }
 
     .header p {
-      margin: 8px 0 0;
+      margin-top: 8px;
       color: #667085;
       font-size: 16px;
     }
 
-    .language-area {
+    .center {
       text-align: center;
     }
 
-    .language-area h2 {
-      margin-bottom: 5px;
+    h2 {
       color: #17365d;
+      margin-bottom: 5px;
     }
 
-    .language-area p {
-      margin-top: 0;
-      margin-bottom: 30px;
+    .instruction {
       color: #667085;
+      margin-bottom: 30px;
     }
 
     .button {
@@ -67,11 +66,11 @@
       padding: 20px;
       border: none;
       border-radius: 14px;
-      background: #ffffff;
+      background-color: white;
       color: #17365d;
       font-size: 19px;
       font-weight: bold;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
       cursor: pointer;
     }
 
@@ -80,13 +79,7 @@
     }
 
     .menu-button {
-      padding: 22px;
       text-align: left;
-    }
-
-    .icon {
-      margin-right: 12px;
-      font-size: 24px;
     }
 
     .change-language {
@@ -95,142 +88,6 @@
     }
 
     .change-language button {
+      padding: 10px;
       border: none;
-      background: transparent;
-      color: #475467;
-      font-size: 15px;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-
-    .footer {
-      margin-top: 45px;
-      text-align: center;
-      color: #98a2b3;
-      font-size: 13px;
-    }
-
-    .hidden {
-      display: none;
-    }
-  </style>
-</head>
-
-<body>
-
-  <main class="container">
-
-    <!-- LANGUAGE SELECTION -->
-
-    <section id="languageScreen">
-
-      <div class="header">
-        <h1>HILLSIDES</h1>
-        <p>Staff Portal</p>
-      </div>
-
-      <div class="language-area">
-
-        <h2>Select your language</h2>
-        <p>Seleccione su idioma</p>
-
-        <button type="button" id="englishButton" class="button">
-          🇬🇧 English
-        </button>
-
-        <button type="button" id="spanishButton" class="button">
-          🇪🇸 Español
-        </button>
-
-      </div>
-
-      <div class="footer">
-        Hillsides Staff Portal
-      </div>
-
-    </section>
-
-
-    <!-- MAIN MENU -->
-
-    <section id="mainMenu" class="hidden">
-
-      <div class="header">
-        <h1>HILLSIDES</h1>
-        <p id="portalTitle">Staff Portal</p>
-      </div>
-
-      <button type="button" id="requestSwapButton" class="button menu-button">
-        <span class="icon">🔄</span>
-        <span id="requestText">Request Shift Swap</span>
-      </button>
-
-      <button type="button" id="acceptSwapButton" class="button menu-button">
-        <span class="icon">✍️</span>
-        <span id="acceptText">Accept Shift Swap</span>
-      </button>
-
-      <button type="button" id="informationButton" class="button menu-button">
-        <span class="icon">ℹ️</span>
-        <span id="informationText">Information</span>
-      </button>
-
-      <div class="change-language">
-        <button type="button" id="changeLanguageButton">
-          🌐 <span id="changeLanguageText">Change language</span>
-        </button>
-      </div>
-
-      <div class="footer">
-        Hillsides Staff Portal
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-
-      const languageScreen = document.getElementById("languageScreen");
-      const mainMenu = document.getElementById("mainMenu");
-
-      const englishButton = document.getElementById("englishButton");
-      const spanishButton = document.getElementById("spanishButton");
-      const changeLanguageButton = document.getElementById("changeLanguageButton");
-
-      const portalTitle = document.getElementById("portalTitle");
-      const requestText = document.getElementById("requestText");
-      const acceptText = document.getElementById("acceptText");
-      const informationText = document.getElementById("informationText");
-      const changeLanguageText = document.getElementById("changeLanguageText");
-
-      let currentLanguage = localStorage.getItem("hillsidesLanguage");
-
-
-      function showLanguageScreen() {
-        languageScreen.classList.remove("hidden");
-        mainMenu.classList.add("hidden");
-      }
-
-
-      function showMainMenu() {
-        languageScreen.classList.add("hidden");
-        mainMenu.classList.remove("hidden");
-      }
-
-
-      function setLanguage(language) {
-
-        currentLanguage = language;
-
-        localStorage.setItem("hillsidesLanguage", language);
-
-        if (language === "es") {
-
-          document.documentElement.lang = "es";
-
-          portalTitle.textContent = "Portal del personal";
-          requestText.textContent = "Solicitar cambio de turno";
-   
+      background: transparent
