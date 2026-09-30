@@ -25,6 +25,7 @@
       max-width: 500px;
       margin: 0 auto;
       padding: 40px 20px;
+      min-height: 100vh;
     }
 
     .header {
@@ -40,23 +41,24 @@
     }
 
     .header p {
-      margin-top: 8px;
+      margin: 8px 0 0;
       color: #667085;
       font-size: 16px;
     }
 
-    .center {
+    .language-area {
       text-align: center;
     }
 
-    h2 {
-      color: #17365d;
+    .language-area h2 {
       margin-bottom: 5px;
+      color: #17365d;
     }
 
-    .instruction {
-      color: #667085;
+    .language-area p {
+      margin-top: 0;
       margin-bottom: 30px;
+      color: #667085;
     }
 
     .button {
@@ -66,11 +68,11 @@
       padding: 20px;
       border: none;
       border-radius: 14px;
-      background-color: white;
+      background-color: #ffffff;
       color: #17365d;
       font-size: 19px;
       font-weight: bold;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
       cursor: pointer;
     }
 
@@ -80,6 +82,7 @@
 
     .menu-button {
       text-align: left;
+      padding: 22px;
     }
 
     .change-language {
@@ -90,4 +93,185 @@
     .change-language button {
       padding: 10px;
       border: none;
-      background: transparent
+      background-color: transparent;
+      color: #475467;
+      font-size: 15px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .footer {
+      margin-top: 45px;
+      text-align: center;
+      color: #98a2b3;
+      font-size: 13px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- LANGUAGE SCREEN -->
+
+    <div id="languageScreen">
+
+      <div class="header">
+        <h1>HILLSIDES</h1>
+        <p>Staff Portal</p>
+      </div>
+
+      <div class="language-area">
+
+        <h2>Select your language</h2>
+
+        <p>Seleccione su idioma</p>
+
+        <button
+          type="button"
+          class="button"
+          onclick="showEnglish()">
+          🇬🇧 English
+        </button>
+
+        <button
+          type="button"
+          class="button"
+          onclick="showSpanish()">
+          🇪🇸 Español
+        </button>
+
+      </div>
+
+      <div class="footer">
+        Hillsides Staff Portal
+      </div>
+
+    </div>
+
+
+    <!-- ENGLISH MENU -->
+
+    <div id="englishMenu" style="display: none;">
+
+      <div class="header">
+        <h1>HILLSIDES</h1>
+        <p>Staff Portal</p>
+      </div>
+
+      <button
+        type="button"
+        class="button menu-button">
+        🔄 &nbsp; Request Shift Swap
+      </button>
+
+      <button
+        type="button"
+        class="button menu-button">
+        ✍️ &nbsp; Accept Shift Swap
+      </button>
+
+      <button
+        type="button"
+        class="button menu-button">
+        ℹ️ &nbsp; Information
+      </button>
+
+      <div class="change-language">
+
+        <button
+          type="button"
+          onclick="showLanguages()">
+          🌐 Change language
+        </button>
+
+      </div>
+
+      <div class="footer">
+        Hillsides Staff Portal
+      </div>
+
+    </div>
+
+
+    <!-- SPANISH MENU -->
+
+    <div id="spanishMenu" style="display: none;">
+
+      <div class="header">
+        <h1>HILLSIDES</h1>
+        <p>Portal del personal</p>
+      </div>
+
+      <button
+        type="button"
+        class="button menu-button">
+        🔄 &nbsp; Solicitar cambio de turno
+      </button>
+
+      <button
+        type="button"
+        class="button menu-button">
+        ✍️ &nbsp; Aceptar cambio de turno
+      </button>
+
+      <button
+        type="button"
+        class="button menu-button">
+        ℹ️ &nbsp; Información
+      </button>
+
+      <div class="change-language">
+
+        <button
+          type="button"
+          onclick="showLanguages()">
+          🌐 Cambiar idioma
+        </button>
+
+      </div>
+
+      <div class="footer">
+        Hillsides Staff Portal
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function showEnglish() {
+
+      document.getElementById("languageScreen").style.display = "none";
+      document.getElementById("spanishMenu").style.display = "none";
+      document.getElementById("englishMenu").style.display = "block";
+
+    }
+
+
+    function showSpanish() {
+
+      document.getElementById("languageScreen").style.display = "none";
+      document.getElementById("englishMenu").style.display = "none";
+      document.getElementById("spanishMenu").style.display = "block";
+
+    }
+
+
+    function showLanguages() {
+
+      document.getElementById("englishMenu").style.display = "none";
+      document.getElementById("spanishMenu").style.display = "none";
+      document.getElementById("languageScreen").style.display = "block";
+
+    }
+
+  </script>
+
+</body>
+
+</html>
