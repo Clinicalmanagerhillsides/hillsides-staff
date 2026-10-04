@@ -183,13 +183,42 @@
       resize: vertical;
     }
 
-    .time-row {
+    .shift-options {
       display: flex;
       gap: 12px;
+      margin-top: 8px;
     }
 
-    .time-row .field {
-      width: 50%;
+    .shift-option {
+      flex: 1;
+      position: relative;
+    }
+
+    .shift-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .shift-option label {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 18px 10px;
+      border: 2px solid #d0d5dd;
+      border-radius: 12px;
+      background-color: #ffffff;
+      color: #344054;
+      text-align: center;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .shift-option input:checked + label {
+      border-color: #17365d;
+      background-color: #eaf0f7;
+      color: #17365d;
     }
 
     .checkbox-area {
@@ -279,17 +308,11 @@
         <h2>Select your language</h2>
         <p>Seleccione su idioma</p>
 
-        <button
-          type="button"
-          class="button"
-          onclick="showEnglish()">
+        <button type="button" class="button" onclick="showEnglish()">
           🇬🇧 English
         </button>
 
-        <button
-          type="button"
-          class="button"
-          onclick="showSpanish()">
+        <button type="button" class="button" onclick="showSpanish()">
           🇪🇸 Español
         </button>
 
@@ -318,22 +341,16 @@
         🔄 &nbsp; Request Shift Swap
       </button>
 
-      <button
-        type="button"
-        class="button menu-button">
+      <button type="button" class="button menu-button">
         ✍️ &nbsp; Accept Shift Swap
       </button>
 
-      <button
-        type="button"
-        class="button menu-button">
+      <button type="button" class="button menu-button">
         ℹ️ &nbsp; Information
       </button>
 
       <div class="change-language">
-        <button
-          type="button"
-          onclick="showLanguages()">
+        <button type="button" onclick="showLanguages()">
           🌐 Change language
         </button>
       </div>
@@ -361,22 +378,16 @@
         🔄 &nbsp; Solicitar cambio de turno
       </button>
 
-      <button
-        type="button"
-        class="button menu-button">
+      <button type="button" class="button menu-button">
         ✍️ &nbsp; Aceptar cambio de turno
       </button>
 
-      <button
-        type="button"
-        class="button menu-button">
+      <button type="button" class="button menu-button">
         ℹ️ &nbsp; Información
       </button>
 
       <div class="change-language">
-        <button
-          type="button"
-          onclick="showLanguages()">
+        <button type="button" onclick="showLanguages()">
           🌐 Cambiar idioma
         </button>
       </div>
@@ -412,6 +423,7 @@
         </div>
 
         <div class="field">
+
           <label for="enName">
             Full name <span class="required">*</span>
           </label>
@@ -422,6 +434,7 @@
             required
             autocomplete="name"
             placeholder="Your full name">
+
         </div>
 
 
@@ -430,6 +443,7 @@
         </div>
 
         <div class="field">
+
           <label for="enMyDate">
             Date <span class="required">*</span>
           </label>
@@ -438,30 +452,46 @@
             type="date"
             id="enMyDate"
             required>
+
         </div>
 
-        <div class="time-row">
+        <div class="field">
 
-          <div class="field">
-            <label for="enMyStart">
-              Start <span class="required">*</span>
-            </label>
+          <label>
+            Shift <span class="required">*</span>
+          </label>
 
-            <input
-              type="time"
-              id="enMyStart"
-              required>
-          </div>
+          <div class="shift-options">
 
-          <div class="field">
-            <label for="enMyFinish">
-              Finish <span class="required">*</span>
-            </label>
+            <div class="shift-option">
 
-            <input
-              type="time"
-              id="enMyFinish"
-              required>
+              <input
+                type="radio"
+                id="enMyDay"
+                name="enMyShift"
+                value="Day"
+                required>
+
+              <label for="enMyDay">
+                ☀️ Day
+              </label>
+
+            </div>
+
+            <div class="shift-option">
+
+              <input
+                type="radio"
+                id="enMyNight"
+                name="enMyShift"
+                value="Night">
+
+              <label for="enMyNight">
+                🌙 Night
+              </label>
+
+            </div>
+
           </div>
 
         </div>
@@ -472,6 +502,7 @@
         </div>
 
         <div class="field">
+
           <label for="enColleague">
             Full name <span class="required">*</span>
           </label>
@@ -481,6 +512,7 @@
             id="enColleague"
             required
             placeholder="Colleague's full name">
+
         </div>
 
 
@@ -489,6 +521,7 @@
         </div>
 
         <div class="field">
+
           <label for="enTheirDate">
             Date <span class="required">*</span>
           </label>
@@ -497,30 +530,46 @@
             type="date"
             id="enTheirDate"
             required>
+
         </div>
 
-        <div class="time-row">
+        <div class="field">
 
-          <div class="field">
-            <label for="enTheirStart">
-              Start <span class="required">*</span>
-            </label>
+          <label>
+            Shift <span class="required">*</span>
+          </label>
 
-            <input
-              type="time"
-              id="enTheirStart"
-              required>
-          </div>
+          <div class="shift-options">
 
-          <div class="field">
-            <label for="enTheirFinish">
-              Finish <span class="required">*</span>
-            </label>
+            <div class="shift-option">
 
-            <input
-              type="time"
-              id="enTheirFinish"
-              required>
+              <input
+                type="radio"
+                id="enTheirDay"
+                name="enTheirShift"
+                value="Day"
+                required>
+
+              <label for="enTheirDay">
+                ☀️ Day
+              </label>
+
+            </div>
+
+            <div class="shift-option">
+
+              <input
+                type="radio"
+                id="enTheirNight"
+                name="enTheirShift"
+                value="Night">
+
+              <label for="enTheirNight">
+                🌙 Night
+              </label>
+
+            </div>
+
           </div>
 
         </div>
@@ -531,6 +580,7 @@
         </div>
 
         <div class="field">
+
           <label for="enReason">
             Reason
             <span class="optional">(optional)</span>
@@ -539,6 +589,7 @@
           <textarea
             id="enReason"
             placeholder="You can add a brief reason if required"></textarea>
+
         </div>
 
 
@@ -556,9 +607,7 @@
         </div>
 
 
-        <button
-          type="submit"
-          class="button primary-button">
+        <button type="submit" class="button primary-button">
           Continue
         </button>
 
@@ -630,32 +679,42 @@
 
         </div>
 
+        <div class="field">
 
-        <div class="time-row">
+          <label>
+            Turno <span class="required">*</span>
+          </label>
 
-          <div class="field">
+          <div class="shift-options">
 
-            <label for="esMyStart">
-              Inicio <span class="required">*</span>
-            </label>
+            <div class="shift-option">
 
-            <input
-              type="time"
-              id="esMyStart"
-              required>
+              <input
+                type="radio"
+                id="esMyDay"
+                name="esMyShift"
+                value="Día"
+                required>
 
-          </div>
+              <label for="esMyDay">
+                ☀️ Día
+              </label>
 
-          <div class="field">
+            </div>
 
-            <label for="esMyFinish">
-              Fin <span class="required">*</span>
-            </label>
+            <div class="shift-option">
 
-            <input
-              type="time"
-              id="esMyFinish"
-              required>
+              <input
+                type="radio"
+                id="esMyNight"
+                name="esMyShift"
+                value="Noche">
+
+              <label for="esMyNight">
+                🌙 Noche
+              </label>
+
+            </div>
 
           </div>
 
@@ -698,32 +757,42 @@
 
         </div>
 
+        <div class="field">
 
-        <div class="time-row">
+          <label>
+            Turno <span class="required">*</span>
+          </label>
 
-          <div class="field">
+          <div class="shift-options">
 
-            <label for="esTheirStart">
-              Inicio <span class="required">*</span>
-            </label>
+            <div class="shift-option">
 
-            <input
-              type="time"
-              id="esTheirStart"
-              required>
+              <input
+                type="radio"
+                id="esTheirDay"
+                name="esTheirShift"
+                value="Día"
+                required>
 
-          </div>
+              <label for="esTheirDay">
+                ☀️ Día
+              </label>
 
-          <div class="field">
+            </div>
 
-            <label for="esTheirFinish">
-              Fin <span class="required">*</span>
-            </label>
+            <div class="shift-option">
 
-            <input
-              type="time"
-              id="esTheirFinish"
-              required>
+              <input
+                type="radio"
+                id="esTheirNight"
+                name="esTheirShift"
+                value="Noche">
+
+              <label for="esTheirNight">
+                🌙 Noche
+              </label>
+
+            </div>
 
           </div>
 
@@ -762,9 +831,7 @@
         </div>
 
 
-        <button
-          type="submit"
-          class="button primary-button">
+        <button type="submit" class="button primary-button">
           Continuar
         </button>
 
@@ -1001,33 +1068,47 @@
 
         event.preventDefault();
 
+        const myShift =
+          document.querySelector(
+            'input[name="enMyShift"]:checked'
+          ).value;
+
+        const theirShift =
+          document.querySelector(
+            'input[name="enTheirShift"]:checked'
+          ).value;
+
+
         document.getElementById("reviewEnName").textContent =
           document.getElementById("enName").value;
+
 
         document.getElementById("reviewEnMyShift").textContent =
           document.getElementById("enMyDate").value +
           " | " +
-          document.getElementById("enMyStart").value +
-          " - " +
-          document.getElementById("enMyFinish").value;
+          myShift;
+
 
         document.getElementById("reviewEnColleague").textContent =
           document.getElementById("enColleague").value;
 
+
         document.getElementById("reviewEnTheirShift").textContent =
           document.getElementById("enTheirDate").value +
           " | " +
-          document.getElementById("enTheirStart").value +
-          " - " +
-          document.getElementById("enTheirFinish").value;
+          theirShift;
+
 
         document.getElementById("reviewEnReason").textContent =
           document.getElementById("enReason").value ||
           "Not provided";
 
+
         hideAllScreens();
 
-        document.getElementById("englishReview").style.display = "block";
+        document.getElementById(
+          "englishReview"
+        ).style.display = "block";
 
         scrollToTop();
 
@@ -1041,33 +1122,47 @@
 
         event.preventDefault();
 
+        const myShift =
+          document.querySelector(
+            'input[name="esMyShift"]:checked'
+          ).value;
+
+        const theirShift =
+          document.querySelector(
+            'input[name="esTheirShift"]:checked'
+          ).value;
+
+
         document.getElementById("reviewEsName").textContent =
           document.getElementById("esName").value;
+
 
         document.getElementById("reviewEsMyShift").textContent =
           document.getElementById("esMyDate").value +
           " | " +
-          document.getElementById("esMyStart").value +
-          " - " +
-          document.getElementById("esMyFinish").value;
+          myShift;
+
 
         document.getElementById("reviewEsColleague").textContent =
           document.getElementById("esColleague").value;
 
+
         document.getElementById("reviewEsTheirShift").textContent =
           document.getElementById("esTheirDate").value +
           " | " +
-          document.getElementById("esTheirStart").value +
-          " - " +
-          document.getElementById("esTheirFinish").value;
+          theirShift;
+
 
         document.getElementById("reviewEsReason").textContent =
           document.getElementById("esReason").value ||
           "No indicado";
 
+
         hideAllScreens();
 
-        document.getElementById("spanishReview").style.display = "block";
+        document.getElementById(
+          "spanishReview"
+        ).style.display = "block";
 
         scrollToTop();
 
