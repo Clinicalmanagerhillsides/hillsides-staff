@@ -98,6 +98,12 @@
       box-shadow: none;
     }
 
+    .small-button {
+      padding: 12px;
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
     .change-language {
       margin-top: 35px;
       text-align: center;
@@ -252,6 +258,39 @@
       font-weight: normal;
     }
 
+    .signature-container {
+      width: 100%;
+      height: 180px;
+      border: 2px solid #d0d5dd;
+      border-radius: 12px;
+      background-color: #ffffff;
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    .signature-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+      cursor: crosshair;
+    }
+
+    .signature-help {
+      margin-top: 8px;
+      color: #667085;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .signature-error {
+      display: none;
+      margin-top: 8px;
+      color: #c62828;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
     .review-box {
       padding: 20px;
       border-radius: 14px;
@@ -276,6 +315,17 @@
 
     .review-item span {
       color: #667085;
+    }
+
+    .signature-preview {
+      display: block;
+      width: 100%;
+      max-height: 170px;
+      margin-top: 8px;
+      object-fit: contain;
+      border: 1px solid #e4e7ec;
+      border-radius: 10px;
+      background-color: #ffffff;
     }
 
     .warning {
@@ -423,7 +473,6 @@
         </div>
 
         <div class="field">
-
           <label for="enName">
             Full name <span class="required">*</span>
           </label>
@@ -434,7 +483,6 @@
             required
             autocomplete="name"
             placeholder="Your full name">
-
         </div>
 
 
@@ -443,7 +491,6 @@
         </div>
 
         <div class="field">
-
           <label for="enMyDate">
             Date <span class="required">*</span>
           </label>
@@ -452,7 +499,6 @@
             type="date"
             id="enMyDate"
             required>
-
         </div>
 
         <div class="field">
@@ -464,7 +510,6 @@
           <div class="shift-options">
 
             <div class="shift-option">
-
               <input
                 type="radio"
                 id="enMyDay"
@@ -475,11 +520,9 @@
               <label for="enMyDay">
                 ☀️ Day
               </label>
-
             </div>
 
             <div class="shift-option">
-
               <input
                 type="radio"
                 id="enMyNight"
@@ -489,7 +532,6 @@
               <label for="enMyNight">
                 🌙 Night
               </label>
-
             </div>
 
           </div>
@@ -502,7 +544,6 @@
         </div>
 
         <div class="field">
-
           <label for="enColleague">
             Full name <span class="required">*</span>
           </label>
@@ -512,7 +553,6 @@
             id="enColleague"
             required
             placeholder="Colleague's full name">
-
         </div>
 
 
@@ -521,7 +561,6 @@
         </div>
 
         <div class="field">
-
           <label for="enTheirDate">
             Date <span class="required">*</span>
           </label>
@@ -530,7 +569,6 @@
             type="date"
             id="enTheirDate"
             required>
-
         </div>
 
         <div class="field">
@@ -542,7 +580,6 @@
           <div class="shift-options">
 
             <div class="shift-option">
-
               <input
                 type="radio"
                 id="enTheirDay"
@@ -553,11 +590,9 @@
               <label for="enTheirDay">
                 ☀️ Day
               </label>
-
             </div>
 
             <div class="shift-option">
-
               <input
                 type="radio"
                 id="enTheirNight"
@@ -567,7 +602,6 @@
               <label for="enTheirNight">
                 🌙 Night
               </label>
-
             </div>
 
           </div>
@@ -580,7 +614,6 @@
         </div>
 
         <div class="field">
-
           <label for="enReason">
             Reason
             <span class="optional">(optional)</span>
@@ -589,21 +622,56 @@
           <textarea
             id="enReason"
             placeholder="You can add a brief reason if required"></textarea>
+        </div>
+
+
+        <div class="section-title">
+          Signature
+        </div>
+
+        <div class="field">
+
+          <label>
+            Sign inside the box <span class="required">*</span>
+          </label>
+
+          <div class="signature-container">
+            <canvas
+              id="enSignature"
+              class="signature-canvas">
+            </canvas>
+          </div>
+
+          <div class="signature-help">
+            Use your finger on a mobile device, or your mouse/trackpad on a computer.
+          </div>
+
+          <div
+            id="enSignatureError"
+            class="signature-error">
+            Please sign before continuing.
+          </div>
+
+          <button
+            type="button"
+            class="button secondary-button small-button"
+            onclick="clearEnglishSignature()">
+            Clear signature
+          </button>
 
         </div>
 
 
         <div class="checkbox-area">
-
           <input
             type="checkbox"
             id="enConfirm"
             required>
 
           <label for="enConfirm">
-            I confirm that the information provided above is correct.
+            I confirm that the information provided above is correct
+            and that the signature above is mine.
           </label>
-
         </div>
 
 
@@ -647,7 +715,6 @@
         </div>
 
         <div class="field">
-
           <label for="esName">
             Nombre y apellidos <span class="required">*</span>
           </label>
@@ -658,7 +725,6 @@
             required
             autocomplete="name"
             placeholder="Nombre y apellidos">
-
         </div>
 
 
@@ -667,7 +733,6 @@
         </div>
 
         <div class="field">
-
           <label for="esMyDate">
             Fecha <span class="required">*</span>
           </label>
@@ -676,7 +741,6 @@
             type="date"
             id="esMyDate"
             required>
-
         </div>
 
         <div class="field">
@@ -688,7 +752,6 @@
           <div class="shift-options">
 
             <div class="shift-option">
-
               <input
                 type="radio"
                 id="esMyDay"
@@ -699,11 +762,9 @@
               <label for="esMyDay">
                 ☀️ Día
               </label>
-
             </div>
 
             <div class="shift-option">
-
               <input
                 type="radio"
                 id="esMyNight"
@@ -713,7 +774,6 @@
               <label for="esMyNight">
                 🌙 Noche
               </label>
-
             </div>
 
           </div>
@@ -726,7 +786,6 @@
         </div>
 
         <div class="field">
-
           <label for="esColleague">
             Nombre y apellidos <span class="required">*</span>
           </label>
@@ -736,7 +795,6 @@
             id="esColleague"
             required
             placeholder="Nombre y apellidos del compañero">
-
         </div>
 
 
@@ -745,7 +803,6 @@
         </div>
 
         <div class="field">
-
           <label for="esTheirDate">
             Fecha <span class="required">*</span>
           </label>
@@ -754,7 +811,6 @@
             type="date"
             id="esTheirDate"
             required>
-
         </div>
 
         <div class="field">
@@ -766,7 +822,6 @@
           <div class="shift-options">
 
             <div class="shift-option">
-
               <input
                 type="radio"
                 id="esTheirDay"
@@ -777,11 +832,9 @@
               <label for="esTheirDay">
                 ☀️ Día
               </label>
-
             </div>
 
             <div class="shift-option">
-
               <input
                 type="radio"
                 id="esTheirNight"
@@ -791,7 +844,6 @@
               <label for="esTheirNight">
                 🌙 Noche
               </label>
-
             </div>
 
           </div>
@@ -804,7 +856,6 @@
         </div>
 
         <div class="field">
-
           <label for="esReason">
             Motivo
             <span class="optional">(opcional)</span>
@@ -813,21 +864,56 @@
           <textarea
             id="esReason"
             placeholder="Puede indicar brevemente el motivo si lo desea"></textarea>
+        </div>
+
+
+        <div class="section-title">
+          Firma
+        </div>
+
+        <div class="field">
+
+          <label>
+            Firma dentro del recuadro <span class="required">*</span>
+          </label>
+
+          <div class="signature-container">
+            <canvas
+              id="esSignature"
+              class="signature-canvas">
+            </canvas>
+          </div>
+
+          <div class="signature-help">
+            Utilice el dedo en el móvil o el ratón/trackpad en un ordenador.
+          </div>
+
+          <div
+            id="esSignatureError"
+            class="signature-error">
+            Debe firmar antes de continuar.
+          </div>
+
+          <button
+            type="button"
+            class="button secondary-button small-button"
+            onclick="clearSpanishSignature()">
+            Borrar firma
+          </button>
 
         </div>
 
 
         <div class="checkbox-area">
-
           <input
             type="checkbox"
             id="esConfirm"
             required>
 
           <label for="esConfirm">
-            Confirmo que la información facilitada es correcta.
+            Confirmo que la información facilitada es correcta
+            y que la firma anterior es mía.
           </label>
-
         </div>
 
 
@@ -885,6 +971,15 @@
           <span id="reviewEnReason"></span>
         </div>
 
+        <div class="review-item">
+          <strong>Signature</strong>
+
+          <img
+            id="reviewEnSignature"
+            class="signature-preview"
+            alt="Employee signature">
+        </div>
+
       </div>
 
       <div class="warning">
@@ -940,6 +1035,15 @@
           <span id="reviewEsReason"></span>
         </div>
 
+        <div class="review-item">
+          <strong>Firma</strong>
+
+          <img
+            id="reviewEsSignature"
+            class="signature-preview"
+            alt="Firma del trabajador">
+        </div>
+
       </div>
 
       <div class="warning">
@@ -961,8 +1065,11 @@
 
   <script>
 
-    function hideAllScreens() {
+    let englishSigned = false;
+    let spanishSigned = false;
 
+
+    function hideAllScreens() {
       document.getElementById("languageScreen").style.display = "none";
       document.getElementById("englishMenu").style.display = "none";
       document.getElementById("spanishMenu").style.display = "none";
@@ -970,96 +1077,213 @@
       document.getElementById("spanishRequest").style.display = "none";
       document.getElementById("englishReview").style.display = "none";
       document.getElementById("spanishReview").style.display = "none";
-
     }
 
 
     function scrollToTop() {
-
       window.scrollTo(0, 0);
-
     }
 
 
     function showEnglish() {
-
       hideAllScreens();
       document.getElementById("englishMenu").style.display = "block";
       scrollToTop();
-
     }
 
 
     function showSpanish() {
-
       hideAllScreens();
       document.getElementById("spanishMenu").style.display = "block";
       scrollToTop();
-
     }
 
 
     function showLanguages() {
-
       hideAllScreens();
       document.getElementById("languageScreen").style.display = "block";
       scrollToTop();
-
     }
 
 
     function openEnglishRequest() {
-
       hideAllScreens();
       document.getElementById("englishRequest").style.display = "block";
+      prepareCanvas("enSignature");
       scrollToTop();
-
     }
 
 
     function openSpanishRequest() {
-
       hideAllScreens();
       document.getElementById("spanishRequest").style.display = "block";
+      prepareCanvas("esSignature");
       scrollToTop();
-
     }
 
 
     function backToEnglishMenu() {
-
       hideAllScreens();
       document.getElementById("englishMenu").style.display = "block";
       scrollToTop();
-
     }
 
 
     function backToSpanishMenu() {
-
       hideAllScreens();
       document.getElementById("spanishMenu").style.display = "block";
       scrollToTop();
-
     }
 
 
     function editEnglishRequest() {
-
       hideAllScreens();
       document.getElementById("englishRequest").style.display = "block";
       scrollToTop();
-
     }
 
 
     function editSpanishRequest() {
-
       hideAllScreens();
       document.getElementById("spanishRequest").style.display = "block";
       scrollToTop();
+    }
+
+
+    function prepareCanvas(canvasId) {
+
+      const canvas = document.getElementById(canvasId);
+      const rect = canvas.parentElement.getBoundingClientRect();
+
+      if (canvas.width === 0 || canvas.height === 0) {
+        canvas.width = Math.floor(rect.width);
+        canvas.height = Math.floor(rect.height);
+      }
 
     }
+
+
+    function setupSignature(canvasId, language) {
+
+      const canvas = document.getElementById(canvasId);
+      const context = canvas.getContext("2d");
+
+      let drawing = false;
+
+
+      function position(event) {
+
+        const rect = canvas.getBoundingClientRect();
+
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        return {
+          x: (event.clientX - rect.left) * scaleX,
+          y: (event.clientY - rect.top) * scaleY
+        };
+
+      }
+
+
+      canvas.addEventListener("pointerdown", function(event) {
+
+        event.preventDefault();
+
+        drawing = true;
+
+        if (canvas.setPointerCapture) {
+          canvas.setPointerCapture(event.pointerId);
+        }
+
+        const point = position(event);
+
+        context.beginPath();
+        context.moveTo(point.x, point.y);
+
+      });
+
+
+      canvas.addEventListener("pointermove", function(event) {
+
+        if (!drawing) {
+          return;
+        }
+
+        event.preventDefault();
+
+        const point = position(event);
+
+        context.lineWidth = 2.5;
+        context.lineCap = "round";
+        context.lineJoin = "round";
+        context.strokeStyle = "#111827";
+
+        context.lineTo(point.x, point.y);
+        context.stroke();
+
+        if (language === "en") {
+          englishSigned = true;
+          document.getElementById("enSignatureError").style.display = "none";
+        } else {
+          spanishSigned = true;
+          document.getElementById("esSignatureError").style.display = "none";
+        }
+
+      });
+
+
+      canvas.addEventListener("pointerup", function(event) {
+
+        drawing = false;
+
+        if (canvas.releasePointerCapture) {
+          try {
+            canvas.releasePointerCapture(event.pointerId);
+          } catch (error) {
+          }
+        }
+
+      });
+
+
+      canvas.addEventListener("pointercancel", function() {
+        drawing = false;
+      });
+
+    }
+
+
+    function clearEnglishSignature() {
+
+      const canvas = document.getElementById("enSignature");
+      const context = canvas.getContext("2d");
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      englishSigned = false;
+
+      document.getElementById("enSignatureError").style.display = "none";
+
+    }
+
+
+    function clearSpanishSignature() {
+
+      const canvas = document.getElementById("esSignature");
+      const context = canvas.getContext("2d");
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      spanishSigned = false;
+
+      document.getElementById("esSignatureError").style.display = "none";
+
+    }
+
+
+    setupSignature("enSignature", "en");
+    setupSignature("esSignature", "es");
 
 
     document.getElementById("englishForm").addEventListener(
@@ -1067,6 +1291,19 @@
       function(event) {
 
         event.preventDefault();
+
+        if (!englishSigned) {
+
+          document.getElementById("enSignatureError").style.display = "block";
+
+          document.getElementById("enSignature").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+          return;
+        }
+
 
         const myShift =
           document.querySelector(
@@ -1104,11 +1341,13 @@
           "Not provided";
 
 
+        document.getElementById("reviewEnSignature").src =
+          document.getElementById("enSignature").toDataURL("image/png");
+
+
         hideAllScreens();
 
-        document.getElementById(
-          "englishReview"
-        ).style.display = "block";
+        document.getElementById("englishReview").style.display = "block";
 
         scrollToTop();
 
@@ -1121,6 +1360,19 @@
       function(event) {
 
         event.preventDefault();
+
+        if (!spanishSigned) {
+
+          document.getElementById("esSignatureError").style.display = "block";
+
+          document.getElementById("esSignature").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+          return;
+        }
+
 
         const myShift =
           document.querySelector(
@@ -1158,11 +1410,13 @@
           "No indicado";
 
 
+        document.getElementById("reviewEsSignature").src =
+          document.getElementById("esSignature").toDataURL("image/png");
+
+
         hideAllScreens();
 
-        document.getElementById(
-          "spanishReview"
-        ).style.display = "block";
+        document.getElementById("spanishReview").style.display = "block";
 
         scrollToTop();
 
